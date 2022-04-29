@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <!--Head-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" />
+        <title>Nerds Closet</title>
+        <link rel="stylesheet" type="text/css" href="Portfolio.css">
+
+    <!--Body-->
+    <body class="Background">
+        
+        
+        <!--Navbar-->
+
+        <div class="navbar">
+            
+            <div class="dropdown">
+              <button class="dropbtn">The Nerds Closet
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#Home">Home</a>
+                <a href="#Blog">Blog</a>
+                <a href="#GitHub">GitHub</a>
+                <a href="#About">About</a>
+                <a href="#Contact">Contact</a>
+              </div>
+            </div>
+          </div>
+
+        <!--Breaks inserted to add space between navbar and the first heading-->
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1>The Nerds Closet</h1>
+
+         <!--About section-->
+        <div class="Row" id="About">
+            <!--Left column-->
+            <div class="Column_2">
+                <img src="./Images/photo.jpg" alt="Photo of Me" class="photo"> 
+            </div>
+            <!--Right column-->
+            <div class="Column_1">
+                <p>
+                    I'm Danielle - Currently enrolled in <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>'s Software Developer Boot Camp. Training in HTML, CSS, and JavaScript. I am also teaching myself Figma for a personal project I am curretly working on. 
+                    <br>I am very goal oriented and hoping to continue with learning, and creating code to move into UX design in a few years.
+                    <br> I am super passionate about Coding, technology, gaming, photography and DIY. 
+                    <br> 
+
+                    <br> <a href="#Contact">Contact</a> me below!
+                </p>
+            </div>
+        </div>
+       
+        <!--Blog Section-->
+            <h3>Blog</h3>
+            
+                
+      
+                <!--GitHub section-->
+            <h3>GitHub</h3>
+                <p>
+                    You can view my coding projects on my GitHub profile here:
+                    <br>
+                    <p class="center"><a href="https://github.com/the-tech-academy" target="_blank">The Tech Academy Github</a></p>
+                </p>
+        
+        <!--Contact section-->
+            <div class="Column_1 Column_tall">
+                <h3>Contact</h3>
+                <!--This specifies where and how to send the form data; we are leaving it blank-->
+                <form action="" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
+                    <label>Name:</label>
+                        <input type="text" placeholder="Please enter your name here">
+                    <label>Email:</label>
+                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
+                    <label>Message:</label>
+                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
+                        <input type="submit" value="SUBMIT">
+                
+            </div>
+    
+
+        <!--Footer section-->
+        <footer>
+            <p>
+                <p class="center">&copy Prosper Consulting Inc., <a href="https://www.learncodinganywhere.com/" target="_blank">The Tech Academy</a></p>
+                <br>
+            </p>
+        </footer>
+    </body>
+</html>
