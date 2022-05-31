@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width" />
         <title>Nerds Closet</title>
         <link rel="stylesheet" type="text/css" href="Portfolio.css">
-
+        
     <!--Body-->
     <body class="Background">
         
@@ -21,13 +21,14 @@
               </button>
               <div class="dropdown-content">
                 <a href="#Home">Home</a>
+                <a href="#Slideshow">Slideshow</a>
                 <a href="#Blog">Blog</a>
                 <a href="#GitHub">GitHub</a>
                 <a href="#About">About</a>
                 <a href="#Contact">Contact</a>
               </div>
             </div>
-          </div>
+        </div>
 
         <!--Breaks inserted to add space between navbar and the first heading-->
         <br>
@@ -51,12 +52,53 @@
                     <br> I am super passionate about Coding, technology, gaming, photography and DIY. 
                     <br> 
 
-                    <br> <a href="#Contact">Contact</a> me below!
+          
                 </p>
             </div>
         </div>
        
-        <!--Blog Section-->
+<!-- Slideshow section added -->
+<div id="Slideshow">
+    <div id="Slideshow_Background"> 
+        <div id="Slideshow_Container">
+            <!-- Slide 1 of 4 -->
+            <div class="mySlides fade">
+                <img class="Slideshow_Images" src="Images/html and css.jpeg"> 
+                <div class="text">I am a front-end software developer,<br> trained in:<br>HTML, CSS</div>
+            </div>
+            <!-- Slide 2 of 4 -->
+            <div class="mySlides fade">
+                <img class="Slideshow_Images" src="Images/JavaScript-Logo.jpeg">
+                <div class="text">Javascript,</div>
+            </div>
+             <!-- Slide 3 of 4 -->
+             <div class="mySlides fade">
+                <img class="Slideshow_Images" src="Images/python.jpeg">
+                <div class="text">and the popular programming language Python!</div>
+            </div>
+            <!-- Slide 4 of 4 -->
+            <div class="mySlides fade">
+                <img class="Slideshow_Images" src="Images/Computer-Programmer.jpeg"> 
+                <div class="text"><a class="white-text contact" onclick="openForm()">Contact me below!</a></div> 
+            </div>
+            <!-- Previous and next buttons -->
+            <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br> <!-- Adds a space between the slideshow images and the dots -->
+
+        <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+        <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span> 
+            <span class="dot" onclick="currentSlide(4)"></span> 
+        </div>
+    </div>
+</div>
+
+
+         <!--Blog Section-->
             <h3>Blog</h3>
             
                 
@@ -92,5 +134,6 @@
                 <br>
             </p>
         </footer>
+        <script src="JS/portfolio.js"></script>
     </body>
 </html>

@@ -1,4 +1,10 @@
 /***** GENERAL STYLING *****/
+
+/*Affects entire document */
+html {
+    scroll-behavior: smooth; /*This ensures that the page scrolling is smooth when the buttons on the nav bar is clicked */
+}
+
 /* Body */
 body {
     margin: 0%  /* This ensures our site displays all the way to the edge of the browser screen */
@@ -15,6 +21,15 @@ h1 {
     margin-top: 4%; /* Adds a small margin above h1 elements */
     color: white; 
 }
+
+
+/* Heading 1 element hover effect */
+h1:hover {
+    filter: grayscale(5%); /* Adds a slightly gray filter to the h1 headings when hovered over */
+    transform: scale(1.1); /* When the h1 elements are hovered over they increase in size by 1.1 */
+    transition: transform 1s; /* This causes the transformation to last 1 second */
+}
+
 
 h3 {
     color:#fff;
@@ -168,40 +183,119 @@ footer {
   }
 /***** END OF NAVBAR STYLING *****/
 
-/***** VIDEO STYLING *****/
-/* Formatting for background video */
-#Typing_Video {
-    position: fixed; /* This fixes the video to the page */
-    right: 0; /* This ensures there is no space between the edge of the video and the edge of the page */
-    bottom: 0; /* This ensures no space between the bottom of the video and the bottom of the page */
-    min-width: 100%; /* This ensures the video is displayed across the full width of the page */
-    z-index: -1; /* This places the video behind the other elements on the page */
+
+/***** SLIDESHOW STYLING *****/
+#Slideshow_Background {
+    background: rgba(255, 255, 255, 0.35); /* This creates a slightly transparent white background that's palced over the video in the background */    
 }
 
-/* Screens that are 576px and smaller will not display the background video */
-@media screen and (max-width: 576px) {
-    #Typing_Video {
-        display: none;
-    }
+.mySlides{
+    display: none; /* This prevents the images from being displayed, we will use JS to display these */
 }
 
-/* Texts over the video */
-.Video_Text {
-    background: rgba(0, 0, 0, 0.5); /* This provides a semi-transparent background for the text to sit over */
-    color: white; /* Makes the font color white */
-    width: 100%; /* Ensures the video-text container fills the width of the video */
-    padding: 20px; /* This adds padding around the video-text container so that the background goes slightly beyond the text */
-    position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
-    -webkit-animation: moveVideoText 5.75s;
-    animation: moveVideoText 5.75s;
+/* Slideshow section / container */
+#Slideshow_Container {
+    width: 39.5vw; /* Relative sizing of the container for the slidewshow set to 39.5% of the viewport width */
+    height: auto; /* The height of the container is automatically adjusted based on the content it is displaying */
+    padding-top: 4%; /* Adds a small padding to the top of the slideshow container */
+    position: relative; /* This sets the container relative to its normal positioning */
+    margin:auto; /* This will horizontally center the container on the page */
 }
 
-/* This animation effect causes the overlay video text to move up from the bottom of the page upon page load */
-@keyframes moveVideoText {
-    from {top: -100vw;} /* This sets the position of the video text to above the viewport */
-    to {top: 0vw;} /* This moves the video text to the normal positioning on the viewport */
+/* Remove the underline from the previous and next buttons on the slideshow */
+#Slideshow_Container a {
+    text-decoration: none;
 }
-/***** END OF VIDEO STYLING *****/
+
+/* Images contained within the slideshow */
+.Slideshow_Images {
+    vertical-align: middle; /* This centers the images vertically within the slideshow container */
+    height: auto; /* The height of the images is automatically adjusted based on the content, ie if your images are different sizes, they will display as different sizes */
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75); /* Adds a shadow around the slideshow images */
+    width: 100%; /* The width of the images is automatically adjusted based on the content */
+}
+
+/* Next and previous buttons */
+.Previous, .Next {
+    cursor: pointer; /* Changes the mouse to a pointer when the buttons are selected */
+    position: absolute; /* This makes the next and previous buttons positioned relative to the slideshow container */
+    top: 50%; /* This moves the buttons up in the slideshow container */
+    width: auto; /* The width of the buttons is automatically adjusted based on the content */
+    padding: 2vw; /* Adds padding equal to 2% of the viewport width */
+    color: darkgray; 
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0; /* Adds a slightly rounded border on the top and bottom right corners */
+    user-select: none; /* This property makes it so that the user cannot highlight the text */
+    transition: 0.6s ease; /* This specifies the details of the hover transition for these elements */
+}
+
+/* Positioning the next button on the right hand side */
+.Next {
+    right: 0; /* This moves the next button to the right side of the slideshow container */
+    border-radius: 3px 0 0 3px; /* This changes the border radius on the next button to the top and bottom left of the button */
+}
+
+/* Hover effect on slide show buttons */
+.Previous:hover, .Next:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Makes the background of the arrows a transparent gray color */
+    color: white; /* Makes the arrows white when hovered over */
+}
+
+/* Slideshow text */
+.text {
+    color: white; 
+    padding: 1vw;
+    position: absolute; /* This ensures the text is positioned within the image */
+    bottom: 0; /* This property sets the text at the bottom of the image */
+    width: 100%; /* The element covers the full width of the image */
+    text-align: center; /* The text is center aligned within the image */
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw; /* This gives slight spacing between the letters */
+    font-size: 1.5vw; /* Font size is relative to the size of the viewport width */
+    background-color: rgba(0, 0, 0, 0.75); /* Gives a slightly transparent black background */
+    font-weight: bold;
+    border-radius: 0px 0px 7px 7px; /* Gives the text background rounded corners on the bottom left and right corners */
+}
+
+/* Styling of the dots under the slideshow */
+.dot {
+    cursor: pointer; /* The cursor changes to pointer when hovered over the dots */
+    height: 1vw; /* The dots are sized relative to the viewport width */
+    width: 1vw;
+    margin: .25vw; /* adds additional spacing between the dots */ 
+    background-color: white; /* Makes the dots white */
+    border-radius: 50%; /* Makes the dots circles by rounding each corner */
+    display: inline-block; /* Allows the dots to sit next to eachother rather than on a new line */
+    transition: background-color 0.6s ease; /* When clicked on the dots transition to a different color when clicked or hovered over (the affect is defined below) */
+    z-index: 1; /* This ensures the dots will be displayed above any other elements */
+}
+
+/* Hover effect for slideshow dots */
+.active, .dot:hover {
+    background-color: black; /* Sets the color of the dots when active or hovered over */
+}
+
+/* Fading animation for slideshow */
+.fade {
+    animation-name: fade; /* Fade animation is defined below */
+    animation-duration: 1.5s; /* The animation lasts 1.5 seconds */
+    -webkit-animation-name: fade; /* Same as above for Safari 4.0-8.0 */
+    -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;} /* Image starts transparent */
+    to {opacity: 1;} /* Image ends opaque */
+}
+
+@keyframes fade {
+    from {opacity: .4;} /* Image starts transparent */
+    to {opacity: 1;} /* Image ends opaque */
+}
+/***** End Slideshow Styling *****/
+
+
 
 /***** TABLE STYLING -  this section covers the styling of the columns and rows within the table *****/
 * { /* The asterisk is a universal selector that applies this effect to all elements on the page */
@@ -283,3 +377,96 @@ form {
     color: white;
 }
 /***** END OF CONTACT FORM STYLING *****/
+
+/*Media rules for paragraph font size for different screen sizes*/
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.75vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.75vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.25vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 2vw;
+    } 
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.75vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.35vw;
+    }
+}
+
+/*Media rule for navbar links for different screen sizes*/
+/* Screens 1080px and smaller will display navbar links equally distributed */
+@media screen and (max-width: 1080px) {
+    .Navbar a{
+        width: 20%; /* This sets each navbar link to 1/5 of the navbar */
+        font-size: 2.5vw;
+    }
+}
+
+/* Media rules to enlarge the font of the white text for smaller screens */
+@media screen and (max-width: 1080px) {
+    .quote{
+        font-size: 3.5vw;
+    }
+
+    .white-text {
+        font-size: 4.5vw;
+    }
+}
+
+/* Media rules to increase the size of the columns for larger screens */
+@media screen and (min-width: 1725px) {
+    .Column_1 {
+        height: 550px;
+    }
+    .Column_2 {
+        height: 550px;
+    }
+}
+
+
+/*Media rule to remove margin-top from h1 elements for extra large screens (so that the paragraph text fits in the column*/
+@media screen and (min-width: 2000px) {
+    h1{
+        margin-top: 0;
+    }
+}
